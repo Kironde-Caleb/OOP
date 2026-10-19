@@ -49,10 +49,54 @@ class Actor(Person):
         print("current show :", self.currentShow)
         print("credit:", self.credits)
         print("education :", self.education)
-        
-        
-actor1 = Actor()
-actor2 = Actor()
 
-actor1.introduce()
-actor2.introduce()
+
+class Lead_actor(Actor):
+    def __init__(self, role="lead actor", script="recieved script", salary = "$300"):
+        super().__init__()
+        self.role = role
+        self.script = script
+        self.__salary = salary
+
+    def get_salary(self):
+        print(self.__salary, "per hour")
+    
+
+    def project_details(self):
+        print(self.name, self.role, ":", self.script)
+        self.get_salary()
+
+class Support_actor(Actor):
+    def __init__(self, role="support actor", script="recieved script", salary = "$150"):
+        super().__init__()
+        self.role = role
+        self.script = script
+
+    def get_salary(self):
+            print(self.__salary, "per hour")
+    
+    def project_details(self):
+        print(self.name, self.role, ":", self.script, "in bits")
+        self.get_salary()
+
+class Extra_actor(Actor):
+    def __init__(self, role="extra actor", script="no script", salary = "$50"):
+        super().__init__()
+        self.role = role
+        self.script = script
+
+    def get_salary(self):
+            print(self.__salary, "per hour")
+
+    def project_details(self):
+        print(self.name, self.role, ":", self.script, "just director's directions")
+        self.get_salary()
+
+        
+        
+actor1 = Lead_actor()
+actor2 = Lead_actor()
+actor3 = Lead_actor()
+
+for x in (actor1, actor2, actor3):
+    x.project_details()
